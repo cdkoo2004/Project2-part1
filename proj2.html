@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countries in the World</title>
+    <link rel="stylesheet" href="Countries.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Gilda+Display&family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+
+    <style>
+
+        #submitButton {
+            background-color: #ffffff;
+            color: rgb(0, 0, 0);
+            padding: 10px 40px;
+            font-size: 50px;
+            border: none;
+            margin-top: ;
+            border-radius: 35px;
+            transition: background-color 0.3s ease;
+        }
+
+        #submitButton:hover {
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+body {
+    background-image: url('https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/world-map-black-and-white-athena-mckinzie.jpg');
+    background-size: cover;
+    background-position: center;
+    background-color: black;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.pixelify-sans-font {
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: 190px;
+    font-style: normal;
+}
+
+@media (max-width: 768px) {
+    .pixelify-sans-font 
+        font-size: 120px;
+    }
+
+    #charInput {
+        font-size: 40px;
+        width: 250px; 
+    }
+
+    #submitButton {
+        font-size: 30px;
+        padding: 8px 20px;
+    }
+
+    #displayedImage {
+        width: 90%;  
+        height: auto; 
+    }
+
+    #input-container {
+        flex-direction: column;
+        margin-top: 20px;
+    }
+
+    #emoji {
+        font-size: 50px;
+        margin-top: 10px;
+    }
+
+@media (max-width: 480px) {
+    .pixelify-sans-font {
+        font-size: 80px;  
+    }
+
+    #charInput {
+        font-size: 30px;
+        width: 200px;
+    }
+
+    #submitButton {
+        font-size: 20px;
+        padding: 8px 15px;
+    }
+
+    #displayedImage {
+        width: 100%;
+        height: auto; 
+    }
+
+    #input-container {
+        padding: 10px;
+    }
+
+    #emoji {
+        font-size: 40px;
+    }
+}
+#charInput {
+    font-size: 60px;
+    width: 400px;
+    font-family: "Pixelify Sans", sans-serif;
+    border-radius: 40px;
+    background: linear-gradient(45deg, #74c8ff, #3bff9d, #f9df1b, #ff3f3f);
+    background-size: 200% 200%;
+    animation: iridescentMove 10s infinite ease-in-out; /* Changed to ease-in-out */
+    border: 0.5px solid transparent;
+    background-clip: content-box, border-box;
+    -webkit-text-fill-color: rgb(0, 0, 0);
+    text-align: center; 
+    line-height: 80px;
+    margin-right: 20px;
+}
+
+
+@keyframes iridescentMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+#submitButton {
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    padding: 10px 40px;
+    font-size: 50px;
+    border: none;
+    margin-top: 2rem;
+    font-family: "Pixelify Sans", sans-serif;
+    transition: background-color 0.3s ease;
+    font-family: "Pixelify Sans", sans-serif;
+}
+
+#input-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000000;
+    font-family: "Pixelify Sans", sans-serif;
+}
+        #displayedImage {
+            width: 900px;
+            height: 700px;
+            display: block;
+            align-items: center;
+            margin: 90px auto 0;
+            border: 5px solid #ffffff; 
+            border-radius: 30px;
+        }
+
+        #emoji {
+            font-size: 80px;
+            cursor: pointer;
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        #hiddenBox {
+            display: none;
+            width: 200px;
+            height: 150px;
+            background-color: rgb(0, 0, 0, 0.8);
+            color: white;
+            border-radius: 10px;
+            padding: 20px;
+            position: absolute;
+            font
+            top: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+    </style>
+</head>
+<body>
+        <h1>
+            <span class="pixelify-sans-font">Countries in the World!</span>
+        </h1>
+
+        <span id="emoji" onclick="toggleBox()">📍</span>
+
+        <div id="hiddenBox">
+            <p>Type any letter in the bar to generate an image of a country of the letter! </p>
+        </div>
+
+    <div id="input-container">
+        <input type="text" id="charInput" maxlength="1">
+        <button onclick="displayImage()" id="submitButton">GO</button>
+    </div>
+
+    <style>
+        p {
+            font-family: "Pixelify Sans", sans-serif;
+            color: rgb(255, 0, 0);
+            font-size: 20px;
+        }
+    </style>
+
+
+    <img id="displayedImage" src="" alt="Displayed Image">
+
+    <script>
+        const images = [
+            "https://lp-cms-production.imgix.net/2023-02/GettyImages-955572464.jpg", //A
+            "https://cdn.britannica.com/14/94514-050-461B9A6D/Palm-trees-ocean-Bahamas-New-Providence-Island.jpg", //B
+            "https://www.cathaypacific.com/content/dam/focal-point/cx/inspiration/2024/10/How_to_prepare_when_travelling_to_China-China_Big_Red_Building-Canto-HERO.renditionimage.900.600.jpg", //C
+            "https://i0.wp.com/www.laundryheap.com/blog/wp-content/uploads/2020/11/Denmark.jpg?resize=820%2C461&ssl=1", //D
+            "https://ichef.bbci.co.uk/ace/standard/976/cpsprodpb/EC5D/production/_131590506_gettyimages-178375366.jpg", //E
+            "https://www.expat.hsbc.com/content/dam/hsbc/mbos/img/international-banking/16-9/3340-france-city-2000x1125.jpg/_jcr_content/renditions/cq5dam.web.1280.1280.jpeg", //F
+            "https://media-cdn.tripadvisor.com/media/photo-m/1280/1d/81/30/3f/caption.jpg", //G
+            "https://www.business.hsbc.com/-/jssmedia/media/global/images/business-guides/hk/doing-business-hongkong.jpg?h=961&iar=0&w=1440&hash=45B80D9C66E598FC16ACA593DD34FA90", //H
+            "https://media.worldnomads.com/Explore/europe/5-things-italy.jpg", // I
+            "https://career-advice.jobs.ac.uk/wp-content/uploads/Japan-e1634207070862-1170x630.jpg.optimal.jpg", //J
+            "https://cdn.concreteplayground.com/content/uploads/2023/12/City-of-Seoul_CJNattanai_Getty-Images-1.jpg", //K
+            "https://www.state.gov/wp-content/uploads/2019/04/Lithuania-2109x1406.png", //L
+            "https://assets.stanford.edu/i/2000x0/filters:quality(60)/f/103430/4415x2945/2e68ffa993/ait-benhaddou-morocco.jpg", //M
+            "https://www.tripsavvy.com/thmb/J_CKHLMNlsMfh5AEODN6CJAu8bU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/DSC_0277-5c7d820346e0fb0001edc8ca.jpg", //N
+            "https://www.zicasso.com/static/a11dfb3e2de9faa5892cbcd859a4ebf0/6d821/a11dfb3e2de9faa5892cbcd859a4ebf0.jpg", //O
+            "https://www.travelandleisure.com/thmb/t7LUbPYWRDe_itXi0c9mmS4OYMc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/TAL-header-azenhas-do-mar-portugal-PRTGREECE0922-1b53ba0a4b4c4eef999ae4190f7981cd.jpg", //P
+            "https://images.squarespace-cdn.com/content/v1/5f7f580e2a273179f84ceaee/504bfa02-9593-4dcc-aa4d-f59d1e8c8314/doha-waterfront3.jpg", //Q
+            "https://www.eiu.com/n/wp-content/uploads/2022/03/shutterstock_1923669935-scaled.jpg", //R
+            "https://assets.vogue.com/photos/6603d64d13a27b5703522946/16:9/w_4496,h_2529,c_limit/509288876", //S
+            "https://image.cnbcfm.com/api/v1/image/108054912-First_Class_Bangkok_Thumbnail_1_CLEAN.jpg?v=1730297639T", //T
+            "https://blog.dookinternational.com/wp-content/uploads/2015/01/Khiva-in-Uzbekistan-1024x557.jpg", //U
+            "https://againstthecompass.com/wp-content/uploads/2024/04/Venezuela-travel-guide-1024x647.jpg", //V
+            "https://againstthecompass.com/wp-content/uploads/2024/04/Venezuela-travel-guide-1024x647.jpg", //W
+            "https://littlewanderbook.com/wp-content/uploads/2023/08/Bezienswaardigheden-Luxemburg-stad-32-van-35-900x600.jpg", //X
+            "https://www.yca-sandwell.org.uk/wp-content/uploads/2024/07/History-of-Yemen-600x364.jpg", //Y
+            "https://good-nature-blog-uploads.s3.amazonaws.com/uploads/2023/10/AdobeStock_251323196.jpg"  //Z
+        ];
+
+        function displayImage() {
+            const input = document.getElementById("charInput").value.toUpperCase();
+            const imgElement = document.getElementById("displayedImage");
+
+    
+            if (input && input.match(/[A-Z]/)) {
+                const index = input.charCodeAt(0) - 65; 
+
+                if (index >= 0 && index < images.length) {
+                    imgElement.src = images[index];
+                    imgElement.classList.remove("hidden");
+                }
+            }
+        }
+        function toggleBox() {
+            const box = document.getElementById('hiddenBox');
+            box.style.display = box.style.display === 'none' ? 'block' : 'none';
+        }
+    </script>
+</body>
+</html>
